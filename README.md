@@ -1,4 +1,7 @@
-ud989-cat-clicker-ko-starter
+ud989-cat-clicker-knockout
 ============================
 
-ud989-cat-clicker-ko-starter
+####Knockout version of cat clicker
+
+
+Demo URL: https://manoj85.github.io/ud989-cat-clicker-knockout/
