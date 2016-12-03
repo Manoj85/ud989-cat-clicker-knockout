@@ -16,13 +16,13 @@ var Cat = function() {
         return title;
     }, this);
 }
-
 var ViewModel = function () {
     "use strict";
-
+    const self = this;
     this.currentCat = ko.observable(new Cat());
     this.incrementCounter = function () {
-        this.clickCount( this.clickCount() + 1 );
+        // this.clickCount( this.clickCount() + 1 );
+        self.currentCat().clickCount(self.currentCat().clickCount() + 1);
     };
 };
 
