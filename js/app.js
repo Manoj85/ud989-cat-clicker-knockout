@@ -66,6 +66,10 @@ var ViewModel = function () {
         // this.clickCount( this.clickCount() + 1 );
         self.currentCat().clickCount(self.currentCat().clickCount() + 1);
     };
+    this.setCat = function ( selectedCat ) {
+        // console.log(selectedCat);
+        self.currentCat(selectedCat);
+    };
 };
 
 ko.applyBindings(new ViewModel());
