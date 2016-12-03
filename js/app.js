@@ -1,3 +1,41 @@
+const initialCats = [
+    {
+        clickCount: 0,
+        name: "Tabby",
+        imgSrc: "img/434164568_fea0ad4013_z.jpg",
+        imgAttribution: '',
+        nickNames: ['Tab-Tab', 'T-Bone', 'Mr. T']
+    },
+    {
+        clickCount: 0,
+        name: "Tiger",
+        imgSrc: "img/4154543904_6e2428c421_z.jpg",
+        imgAttribution: '',
+        nickNames: ['Tigger']
+    },
+    {
+        clickCount: 0,
+        name: "Scaredy",
+        imgSrc: "img/22252709_010df3379e_z.jpg",
+        imgAttribution: '',
+        nickNames: ['Casper', 'Cassy', 'Mr. C']
+    },
+    {
+        clickCount: 0,
+        name: "Shadow",
+        imgSrc: "img/1413379559_412a540d29_z.jpg",
+        imgAttribution: '',
+        nickNames: ['Shooby', 'T-Bone', 'Mr. Sh']
+    },
+    {
+        clickCount: 0,
+        name: "Sleepy",
+        imgSrc: "img/9648464288_2516b35537_z.jpg",
+        imgAttribution: '',
+        nickNames: ['ZZZZ']
+    }
+];
+
 var Cat = function(data) {
     "use strict";
     this.clickCount = ko.observable(data.clickCount);
@@ -18,14 +56,12 @@ var Cat = function(data) {
 }
 var ViewModel = function () {
     "use strict";
-    const self = this;
-    this.currentCat = ko.observable( new Cat({
-        clickCount: 0,
-        name: 'Tabby',
-        imgSrc: 'img/434164568_fea0ad4013_z.jpg',
-        imgAttribution: 'https://www.flickr.com/photos/bigtallguy/434164568',
-        nickNames: ['Tab-Tab', 'T-Bone', 'Mr. T']
-    }) );
+    let self = this;
+    this.catList = ko.observableArray([]);
+    initialCats.forEach(function(catObj) {
+        self.catList.push(new Cat(catObj));
+    });
+    this.currentCat = ko.observable( this.catList()[0] );
     this.incrementCounter = function () {
         // this.clickCount( this.clickCount() + 1 );
         self.currentCat().clickCount(self.currentCat().clickCount() + 1);
