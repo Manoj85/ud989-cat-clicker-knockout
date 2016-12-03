@@ -4,6 +4,7 @@ var ViewModel = function () {
     this.name = ko.observable("Tabby");
     this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
     this.imgAttribution = ko.observable('https://www.flickr.com/photos/');
+    this.nickNames =  ['Tab-Tab', 'T-Bone', 'Mr. T']
 
     this.incrementCounter = function () {
         this.clickCount( this.clickCount() + 1 );
